@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AuthenticationserviceApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("application.properties", "authentication-service");
 		SpringApplication.run(AuthenticationserviceApplication.class, args);
 	}
 
