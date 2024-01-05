@@ -39,8 +39,7 @@ public class AuthConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 //                Set permissions on endpoints
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/token").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/token", "/auth/publish").permitAll()
                         .requestMatchers(HttpMethod.GET, "/auth/validate").permitAll()
                         .anyRequest().authenticated())
                 .authenticationProvider(authenticationProvider())

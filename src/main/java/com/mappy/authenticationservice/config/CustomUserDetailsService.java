@@ -14,10 +14,11 @@ import java.util.Optional;
 @Component
 public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
-    private IUserCredentialRepository userCredentialRepository;
+    private IUserCredentialRepository repository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserCredential> credential=userCredentialRepository.findByName(username);
-        return credential.map(CustomUserDetails::new).orElseThrow(()->new UsernameNotFoundException("user not found with name: "+username));
+        Optional<UserCredential> credential = repository.findByUsername(username);
+        return credential.map(CustomUserDetails::new).orElseThrow(() -> new UsernameNotFoundException("user not found with name :" + username));
     }
 }
