@@ -1,4 +1,4 @@
-package com.mappy.authenticationservice.dto;
+package com.mappy.authservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

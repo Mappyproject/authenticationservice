@@ -1,4 +1,4 @@
-package com.mappy.authenticationservice.dto;
+package com.mappy.authservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,10 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountDto {
+public class AccountAuthDto {
+    private String username;
+    private String email;
+    private String password;
     private String name;
     private String surname;
     private String phoneNumber;

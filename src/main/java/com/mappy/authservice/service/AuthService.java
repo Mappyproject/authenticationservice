@@ -1,7 +1,7 @@
-package com.mappy.authenticationservice.service;
+package com.mappy.authservice.service;
 
-import com.mappy.authenticationservice.model.UserCredential;
-import com.mappy.authenticationservice.repository.IUserCredentialRepository;
+import com.mappy.authservice.repository.IUserCredentialRepository;
+import com.mappy.authservice.model.UserCredential;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

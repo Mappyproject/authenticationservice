@@ -1,4 +1,4 @@
-package com.mappy.authenticationservice.config;
+package com.mappy.authservice.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -23,6 +23,7 @@ public class RabbitMQConfig {
     public Queue jsonQueue() {
         return new Queue(jsonQueue);
     }
+
     // spring bean for rabbitmq exchange
     @Bean
     public TopicExchange exchange() {
@@ -37,6 +38,7 @@ public class RabbitMQConfig {
                 .to(exchange())
                 .with(routingJsonKey);
     }
+
     @Bean
     public MessageConverter converter() {
         return new Jackson2JsonMessageConverter();

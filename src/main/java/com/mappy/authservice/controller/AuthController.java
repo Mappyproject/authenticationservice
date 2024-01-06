@@ -1,11 +1,11 @@
-package com.mappy.authenticationservice.controller;
+package com.mappy.authservice.controller;
 
-import com.mappy.authenticationservice.dto.AccountAuthDto;
-import com.mappy.authenticationservice.dto.AccountDto;
-import com.mappy.authenticationservice.dto.AuthRequest;
-import com.mappy.authenticationservice.model.UserCredential;
-import com.mappy.authenticationservice.publisher.RabbitMQJsonProducer;
-import com.mappy.authenticationservice.service.AuthService;
+import com.mappy.authservice.dto.AccountAuthDto;
+import com.mappy.authservice.dto.AccountDto;
+import com.mappy.authservice.dto.AuthRequest;
+import com.mappy.authservice.model.UserCredential;
+import com.mappy.authservice.publisher.RabbitMQJsonProducer;
+import com.mappy.authservice.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,10 +18,15 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
     @Autowired
     private AuthService authService;
+    private RabbitMQJsonProducer jsonProducer;
 
     @Autowired
     private AuthenticationManager authenticationManager;
-    private RabbitMQJsonProducer jsonProducer;
+
+    public AuthController(AuthService authService, RabbitMQJsonProducer jsonProducer) {
+        this.authService = authService;
+        this.jsonProducer = jsonProducer;
+    }
 
     @PostMapping("/publish")
     public ResponseEntity<String> sendJsonMessage(@RequestBody AccountDto accountDto) {

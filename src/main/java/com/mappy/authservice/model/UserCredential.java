@@ -1,4 +1,4 @@
-package com.mappy.authenticationservice.model;
+package com.mappy.authservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,12 +16,12 @@ public class UserCredential {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String username;
+    private String name;
     private String email;
     private String password;
 
-    public UserCredential(String username, String email, String password) {
-        this.username = username;
+    public UserCredential(String name, String email, String password) {
+        this.name = name;
         this.email = email;
         this.password = password;
     }

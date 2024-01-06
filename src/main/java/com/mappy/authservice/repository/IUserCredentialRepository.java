@@ -1,10 +1,10 @@
-package com.mappy.authenticationservice.repository;
+package com.mappy.authservice.repository;
 
-import com.mappy.authenticationservice.model.UserCredential;
+import com.mappy.authservice.model.UserCredential;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
 public interface IUserCredentialRepository extends JpaRepository<UserCredential, Integer> {
-    Optional<UserCredential> findByUsername(String username);
+    Optional<UserCredential> findByName(String username);
 }

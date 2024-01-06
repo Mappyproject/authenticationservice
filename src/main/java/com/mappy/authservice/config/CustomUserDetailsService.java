@@ -1,8 +1,7 @@
-package com.mappy.authenticationservice.config;
+package com.mappy.authservice.config;
 
-import com.mappy.authenticationservice.config.CustomUserDetails;
-import com.mappy.authenticationservice.model.UserCredential;
-import com.mappy.authenticationservice.repository.IUserCredentialRepository;
+import com.mappy.authservice.model.UserCredential;
+import com.mappy.authservice.repository.IUserCredentialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,7 +17,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserCredential> credential = repository.findByUsername(username);
+        Optional<UserCredential> credential = repository.findByName(username);
         return credential.map(CustomUserDetails::new).orElseThrow(() -> new UsernameNotFoundException("user not found with name :" + username));
     }
 }

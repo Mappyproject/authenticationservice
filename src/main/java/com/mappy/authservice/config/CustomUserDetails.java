@@ -1,6 +1,6 @@
-package com.mappy.authenticationservice.config;
+package com.mappy.authservice.config;
 
-import com.mappy.authenticationservice.model.UserCredential;
+import com.mappy.authservice.model.UserCredential;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,7 +11,7 @@ public class CustomUserDetails implements UserDetails {
     private String password;
 
     public CustomUserDetails(UserCredential userCredential) {
-        this.username = userCredential.getUsername();
+        this.username = userCredential.getName();
         this.password = userCredential.getPassword();
     }
 
